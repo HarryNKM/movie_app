@@ -2,8 +2,8 @@
 
 
 
-# **Age Calculator**
-Simple Age Calculator app made with Flutter in India.
+# **Movie App**
+Simple Movie App made with Flutter in India.
 
 ---
 
