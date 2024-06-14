@@ -1,16 +1,41 @@
-# movie_app
+<div align="center">
 
-A new Flutter project.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+# **Age Calculator**
+Simple Age Calculator app made with Flutter in India.
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+</div>
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
+## 🗒 About
+
+This is a simple app made for knowing total passed out time from your birthdate until now in the form of Years, Months and Days. You can also get upcoming or remaining time duration for your next birthday in the form of Months and Days.
+
+## ⚙️ Features
+Main features are as follows:
+Passed Time duration until now from birthdate
+Upcoming birthday time calculation
+## 📲 Screenshots
+
+<img align="left" src="![SS1](https://github.com/HarryNKM/movie_app/assets/156164876/766fde12-6f9a-440b-99fa-57aa30995508)
+" width="220px">
+
+
+
+
+<br><br>
+
+
+
+<div align="center">
+
+
+### Made with ❤️ in India.
+---
+### You can show some respect by starring 🌟 the repository!
+---
+</div>
