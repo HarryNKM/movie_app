@@ -32,104 +32,72 @@ class _HomeScreenState extends State<HomeScreen> {
     providerR = context.read<HomeProvider>();
     return SafeArea(
       child: Scaffold(
-        body: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: FutureBuilder(
-            future: providerW!.modal,
-            builder: (context, snapshot) {
-              HomeModal? modal = snapshot.data;
-              if (snapshot.hasError) {
-                const Text("Data not found");
-              } else if (snapshot.hasData) {
-                return Container(
-                  height: MediaQuery.sizeOf(context).height,
-                  width: MediaQuery.sizeOf(context).width,
-                  padding: const EdgeInsets.only(
-                      top: 35, right: 12, left: 12, bottom: 12),
-                  decoration: const BoxDecoration(
-                    color: Color(0xff1A1A1D),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        "Search for a content",
-                        style: TextStyle(color: Colors.white, fontSize: 20),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      SearchBar(
-                        controller: controller,
-                        hintText: "search here",
-                        trailing: [
-                          IconButton(
-                              onPressed: () {
-                                providerR!.searchData(controller.text);
-                              },
-                              icon: const Icon(Icons.search_outlined))
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      const Text(
-                        "Categories",
-                        style: TextStyle(color: Colors.white, fontSize: 18),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            height: 148,
-                            width: 163,
-                            decoration:
-                                const BoxDecoration(color: Colors.white),
-                          ),
-                          const SizedBox(
-                            width: 20,
-                          ),
-                          Container(
-                            height: 148,
-                            width: 163,
-                            decoration:
-                                const BoxDecoration(color: Colors.white),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Expanded(
-                        child: ListView.builder(
-
-                          itemBuilder: (context, index) {
-                            return ListTile(
+        body: FutureBuilder(
+          future: providerW!.modal,
+          builder: (context, snapshot) {
+            HomeModal? modal = snapshot.data;
+            if (snapshot.hasError) {
+              const Text("Data not found");
+            } else if (snapshot.hasData) {
+              return Container(
+                height: MediaQuery.sizeOf(context).height,
+                width: MediaQuery.sizeOf(context).width,
+                padding: const EdgeInsets.only(
+                    top: 35, right: 12, left: 12, bottom: 12),
+                decoration: const BoxDecoration(
+                  color: Color(0xff1A1A1D),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "Search for a content",
+                      style: TextStyle(color: Colors.white, fontSize: 20),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    SearchBar(
+                      controller: controller,
+                      hintText: "search here",
+                      trailing: [
+                        IconButton(
+                            onPressed: () {
+                              providerR!.searchData(controller.text);
+                            },
+                            icon: const Icon(Icons.search_outlined))
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Expanded(
+                      child: GridView.builder(
+                        gridDelegate:  const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+                        itemCount: modal!.search!.length,
+                        itemBuilder: (context, index) {
+                            return  InkWell(
                               onTap: () {
                                 Navigator.pushNamed(context, 'detail',arguments: modal);
                               },
-                              leading: CircleAvatar(
-                                backgroundImage: NetworkImage("${modal!.Poster}"),
+                              child: GridTile(
+                                child: Container(
+                                  padding: const EdgeInsets.all(10),
+                                  height: 20,
+                                  width: 20,
+                                  child: Image.network("${modal.search![index].poster}",fit: BoxFit.cover,),
+                                ),
                               ),
-                              title: Text(
-                                "${modal.Title}",
-                                style: const TextStyle(color: Colors.white),
-                              ),
-                              subtitle: Text("${modal.Director}"),
                             );
-                          },
-                        ),
-                      )
-                    ],
-                  ),
-                );
-              }
-              return const CircularProgressIndicator();
-            },
-          ),
+                        },
+                      ),
+                    )
+                  ],
+                ),
+              );
+            }
+            return const Center(child: CircularProgressIndicator());
+          },
         ),
       ),
     );

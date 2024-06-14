@@ -55,7 +55,7 @@ class _DetailScreenState extends State<DetailScreen> {
                   height: 350,
                   width: MediaQuery.sizeOf(context).width,
                   child: Image.network(
-                    "${providerW!.modal!.Poster}",
+                    "",
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -66,27 +66,27 @@ class _DetailScreenState extends State<DetailScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "${modal.Title}",
+                      "${modal.search}",
                       style: const TextStyle(
                           color: Colors.white,
                           fontSize: 20,
                           fontWeight: FontWeight.bold,overflow: TextOverflow.ellipsis),
                     ),
-                    Text(
-                      "${modal.Year}",
-                      style: const TextStyle(
+                    const Text(
+                      "",
+                      style: TextStyle(
                         color: Colors.grey,
                         fontSize: 18,
                       ),
                     ),
-                    Text("Duration : ${modal.Runtime}",style: const TextStyle(color: Colors.white,fontSize: 18),),
+                    const Text("Duration : ",style: TextStyle(color: Colors.white,fontSize: 18),),
                   ],
                 ),
                 const SizedBox(
                   height: 10,
                 ),
                 Text(
-                  "${modal.Director}",
+                  "",
                   style: TextStyle(
                     color: Colors.grey.shade700,
                     fontSize: 18,
@@ -95,18 +95,18 @@ class _DetailScreenState extends State<DetailScreen> {
                 const SizedBox(
                   height: 10,
                 ),
-                Row(
+                const Row(
                   children: [
-                    const Text(
+                    Text(
                       "Language : ",
                       style: TextStyle(color: Colors.white, fontSize: 20),
                     ),
-                    const SizedBox(
+                    SizedBox(
                       width: 10,
                     ),
                     Text(
-                      "${modal.Language}",
-                      style: const TextStyle(
+                      "",
+                      style: TextStyle(
                           color: Colors.white,
                           fontSize: 20,
                           fontWeight: FontWeight.bold),
@@ -121,16 +121,16 @@ class _DetailScreenState extends State<DetailScreen> {
                   style: TextStyle(color: Colors.grey),
                 ),
                 const SizedBox(height: 20,),
-                Row(
+                const Row(
                   children: [
-                    const Text("IMDB : ",style: TextStyle(color: Colors.white,fontSize: 22),),
-                    Text("${modal.imdbRating}",style: const TextStyle(color: Colors.white,fontSize: 20),),
+                    Text("IMDB : ",style: TextStyle(color: Colors.white,fontSize: 22),),
+                    Text("",style: TextStyle(color: Colors.white,fontSize: 20),),
                   ],
                 ),
                 const SizedBox(height: 10,),
-                Text("Rated : ${modal.Rated}",style: const TextStyle(color: Colors.white,fontSize: 18),),
-                Text("Released : ${modal.Released}",style: const TextStyle(color: Colors.white,fontSize: 18)),
-                Text("Writers : ${modal.Writer}",style: const TextStyle(color: Colors.white,fontSize: 18))
+                const Text("Rated : }",style: TextStyle(color: Colors.white,fontSize: 18),),
+                const Text("Released : }",style: TextStyle(color: Colors.white,fontSize: 18)),
+                const Text("Writers : }",style: TextStyle(color: Colors.white,fontSize: 18))
               ],
             ),
           ),

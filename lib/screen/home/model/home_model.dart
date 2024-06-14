@@ -1,26 +1,45 @@
 class HomeModal {
-  SearchModal modal =SearchModal();
+  List<SearchModal>? search = [];
+  String? totalResults;
+  String? response;
+  HomeModal({
+    this.search,
+    this.totalResults,
+    this.response,
+  });
 
-  List<SearchModal>? searchList=[];
-
-  HomeModal({this.searchList});
-
-  factory HomeModal.mapToModal(Map m1)
-  {
-    List l1=[m1['Search']];
-    return HomeModal(searchList: l1.map((e) => SearchModal.mapToModal(e)).toList());
+  factory HomeModal.mapToModal(Map m1) {
+    List l1 = m1['Search'];
+    return HomeModal(
+      search: l1.map((e) => SearchModal.mapToModal(e)).toList(),
+      totalResults: m1['totalResults'],
+      response: m1['Response'],
+    );
   }
 }
 
-class SearchModal
-{
-  String? Title,Year,imdbID,Type,Poster;
+class SearchModal {
+  String? title;
+  String? year;
+  String? imdbID;
+  String? type;
+  String? poster;
 
-  SearchModal({this.Title, this.Year, this.imdbID, this.Type, this.Poster});
+  SearchModal({
+    this.title,
+    this.year,
+    this.imdbID,
+    this.type,
+    this.poster,
+  });
 
-  factory SearchModal.mapToModal(Map m1)
-  {
-    return SearchModal(Poster: m1['Poster'],Title: m1['Title'],imdbID: m1['imdbID'],Type: m1['Type'],Year: m1['Year']);
+  factory SearchModal.mapToModal(Map m1) {
+    return SearchModal(
+      title: m1['Title'],
+      year: m1['Year'],
+      imdbID: m1['imdbID'],
+      type: m1['Type'],
+      poster: m1['Poster'],
+    );
   }
 }
-
